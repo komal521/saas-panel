@@ -48,21 +48,18 @@ function Sidebar() {
           </div>
           <div className="px-3">
             {allItems.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => {
+              <div key={index} onClick={() => {
       setActive(item.name);
-  setOpen(false);
-  if (item.name === "Dashboard") navigate("/");
-  else if (item.name === "Orders") navigate("/orders");
-  else if (item.name === "Product Management") navigate("/product");
-  else if (item.name === "Staff Management") navigate("/staff");
-  else if (item.name === "Godown Management") navigate("/godown");
-  else if (item.name === "Supplier Management") navigate("/supplier");
-  else if (item.name === "Blog") navigate("/blog");
-  else if (item.name === "Contact") navigate("/contact");
-  else if (item.name === "Settings") navigate("/settings");
-}}
+       setOpen(false);
+       if (item.name === "Dashboard") navigate("/");
+       else if (item.name === "Orders") navigate("/orders");
+       else if (item.name === "Product Management") navigate("/product");
+       else if (item.name === "Staff Management") navigate("/staff");
+       else if (item.name === "Godown Management") navigate("/godown");
+       else if (item.name === "Supplier Management") navigate("/supplier");
+       else if (item.name === "Blog") navigate("/blog");
+       else if (item.name === "Contact") navigate("/contact");
+       else if (item.name === "Settings") navigate("/settings");}}
         className={`group flex items-center gap-3 p-3 rounded-lg cursor-pointer mb-2 transition ${
                   active === item.name
                     ? "bg-yellow-500 text-black"
@@ -71,8 +68,7 @@ function Sidebar() {
                   className={`h-5 w-5 object-contain transition ${
                     active === item.name
                       ? "brightness-0"
-                      : "invert group-hover:scale-110"
-                  }`}/>
+                      : "invert group-hover:scale-110"}`}/>
                 <span className="text-sm">{item.name}</span>
               </div>
             ))}

@@ -54,8 +54,7 @@ const Dashboard = () => {
       {toastMsg && (
         <div className="fixed top-4 right-4 z-50 bg-gray-800 text-white px-4 py-2 rounded shadow-lg text-sm">
           {toastMsg}
-        </div>
-      )}
+        </div>)}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
       {[
       { title: "Total Orders", value: "12,482", icon: ordersIcon, change: "+12.5%", up: true },
@@ -229,7 +228,6 @@ const Dashboard = () => {
           <p className="text-[10px] text-gray-400 font-medium">{u.time}</p>
         </div>
       ))}
-
       <div onClick={() => setToastMsg("Managing all users ")}
         className="text-center mt-4 text-gray-500 hover:text-orange-500 cursor-pointer text-sm">
         Manage All Users
@@ -312,10 +310,10 @@ const Dashboard = () => {
           <img src={whatsappIcon} className="w-5" />
           <p className="text-sm">Quick WhatsApp Offer</p>
         </div>
+        </div>
       </div>
+     </div>
     </div>
-  </div>
-</div>
     </div>   
   );
 };
