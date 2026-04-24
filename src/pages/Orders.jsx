@@ -40,7 +40,7 @@ function Orders() {
         <input type="text" placeholder="Search orders..." value={search} onChange={(e) => setSearch(e.target.value)}
          className="outline-none px-2 text-sm" /></div>
           <button onClick={handleExport}
-            className="flex items-center gap-2 bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:opacity-90" >
+            className="flex items-center gap-2 bg-[#C2863FFF] text-black px-4 py-2 rounded-lg font-medium hover:opacity-90" >
             <img src={downloadIcon} className="w-4" />
             Export Data
           </button>
@@ -92,14 +92,14 @@ function Orders() {
       <button onClick={() => setActiveTab("Filter")}
        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm ${
        activeTab === "Filter"
-       ? "bg-yellow-500 text-black"
+       ? "bg-[#A68B5BFF] text-black"
        : "bg-gray-100 text-gray-600"}`} >
       <img src={arrowRight} className="w-4" />
               Filter </button>
             <button  onClick={() => setActiveTab("Date")}
               className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm ${
                 activeTab === "Date"
-                  ? "bg-yellow-500 text-black"
+                  ? "bg-[#A68B5BFF] text-black"
                   : "bg-gray-100 text-gray-600" }`} >
               <img src={calendarIcon} className="w-4" />
               Date </button>
@@ -191,7 +191,7 @@ function Orders() {
             {[1,2,3,4,5].map((num) => (
           <button key={num} onClick={() => setActivePage(num)}
            className={`px-3 py-1 rounded ${activePage === num
-              ? "bg-yellow-500 text-black"
+              ? "bg-[#FFF49CFF] text-black"
               : "bg-gray-200"}`} >
                 {num} </button>
             ))}
@@ -208,7 +208,7 @@ function Orders() {
       the Q4 holiday rush. Courier performance is currently 14% higher than the
       industry baseline.
     </p>
-    <button className="flex items-center gap-1 mt-3 text-sm font-medium text-yellow-700 hover:underline">
+    <button className="flex items-center gap-1 mt-3 text-sm font-medium text-[#161A1DFF] hover:underline">
       View Detailed Forecast
       <img src={rightArrowSmall} className="w-3" />
     </button>
@@ -223,7 +223,7 @@ function Orders() {
       Based on current order velocity for bespoke monogrammed collections, we
       anticipate a 22% increase in net revenue year-end.
     </p>
-    <button className="flex items-center gap-1 mt-3 text-sm font-medium text-yellow-700 hover:underline">
+    <button className="flex items-center gap-1 mt-3 text-sm font-medium text-[#161A1DFF] hover:underline">
       View Detailed Forecast
       <img src={rightArrowSmall} className="w-3" />
     </button>

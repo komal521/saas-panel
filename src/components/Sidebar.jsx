@@ -5,7 +5,6 @@ import dashboardIcon from "../assets/dashboard (1).png";
 import ordersIcon from "../assets/online-shopping.png";
 import productIcon from "../assets/box.png";
 import blogIcon from "../assets/blogging.png";
-import contactIcon from "../assets/telephone.png";
 import profiledetails from "../assets/user (1).png";
 import { useNavigate} from "react-router-dom";
 import usersIcon from "../assets/user.png";
@@ -19,7 +18,6 @@ function Sidebar() {
     { name: "Orders", icon: ordersIcon },
     { name: "Product Management", icon: productIcon },
     { name: "Blog", icon: blogIcon },
-    { name: "Contact", icon: contactIcon },
     { name: "Profile details", icon: profiledetails },
    { name: "Staff Management", icon: usersIcon },
    { name: "Godown Management", icon: godownIcon },
@@ -58,11 +56,10 @@ function Sidebar() {
        else if (item.name === "Godown Management") navigate("/godown");
        else if (item.name === "Supplier Management") navigate("/supplier");
        else if (item.name === "Blog") navigate("/blog");
-       else if (item.name === "Contact") navigate("/contact");
        else if (item.name === "Settings") navigate("/settings");}}
         className={`group flex items-center gap-3 p-3 rounded-lg cursor-pointer mb-2 transition ${
                   active === item.name
-                    ? "bg-yellow-500 text-black"
+                    ? "bg-[#A68B5BFF] text-black"
                     : "hover:bg-gray-800"}`} >
                 <img src={item.icon} alt=""
                   className={`h-5 w-5 object-contain transition ${

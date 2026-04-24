@@ -63,7 +63,7 @@ const Dashboard = () => {
       { title: "Pending Orders", value: "154", icon: pendingIcon, change: "-2.4%", up: false },].map((item, i) => (
       <div key={i} className="relative bg-white p-4 rounded-xl shadow">
       <div className={`absolute top-3 right-3 text-xs font-semibold flex items-center gap-1 ${
-              item.up ? "text-green-500" : "text-red-500" }`}>
+              item.up ? "text-[#C2863FFF]" : "text-red-500" }`}>
       <img src={arrowRight} className={`w-3 ${item.up ? "rotate-[-45deg]" : "rotate-[135deg]"}`} />
               <span>{item.change}</span> </div>
       <div className="flex flex-col gap-2">
@@ -116,7 +116,7 @@ const Dashboard = () => {
             <td>{o.amount}</td>
             <td>
             <span className={`px-2 py-1 rounded text-white text-xs ${
-             o.status === "Completed"? "bg-green-500": o.status === "Pending"? "bg-yellow-500": "bg-red-500" }`}>
+             o.status === "Completed"? "bg-[#A68B5B4D]": o.status === "Pending"? "bg-[#C2863FFF]": "bg-[#C2863FFF]" }`}>
                 {o.status} </span>
                 </td>
                <td>
@@ -128,7 +128,7 @@ const Dashboard = () => {
             </table>
           </div>
           <div onClick={handleViewAll}
-            className="text-center mt-4 text-orange-500 cursor-pointer">
+            className="text-center mt-4 text-[#161A1DFF] cursor-pointer">
             View All Orders
           </div>
         </div>
@@ -166,7 +166,7 @@ const Dashboard = () => {
             <img src={caretDown} className="w-4" />
           </div>
           <button onClick={handleSend}
-            className="w-full bg-green-500 text-white py-2 rounded text-sm flex items-center justify-center gap-2">
+            className="w-full bg-[#A68B5B4D] text-white py-2 rounded text-sm flex items-center justify-center gap-2">
             <img src={whatsappIcon} className="w-4" />
             Send via WhatsApp
           </button>
@@ -196,12 +196,12 @@ const Dashboard = () => {
               </p>
             </div>
           </div>
-          <p className="text-orange-500 font-semibold text-sm">{p.price}</p>
+          <p className="text-[#C2863FFF] font-semibold text-sm">{p.price}</p>
         </div>
       ))}
       <div
         onClick={() => setToastMsg("Viewing full inventory ")}
-        className="text-center mt-4 text-gray-500 hover:text-orange-500 cursor-pointer text-sm">
+        className="text-center mt-4 text-gray-500 hover:text-[#C2863FFF] cursor-pointer text-sm">
         View Full Inventory
       </div>
     </div>
@@ -229,7 +229,7 @@ const Dashboard = () => {
         </div>
       ))}
       <div onClick={() => setToastMsg("Managing all users ")}
-        className="text-center mt-4 text-gray-500 hover:text-orange-500 cursor-pointer text-sm">
+        className="text-center mt-4 text-gray-500 hover:text-[#C2863FFF] cursor-pointer text-sm">
         Manage All Users
       </div>
     </div>
@@ -245,7 +245,7 @@ const Dashboard = () => {
           onClick={() => setActiveBillTab("generate")}
           className={`flex-1 py-2 text-sm rounded flex items-center justify-center gap-2 ${
             activeBillTab === "generate"
-              ? "bg-orange-500 text-white shadow"
+              ? "bg-[#A68B5BFF] text-white shadow"
               : "border text-gray-600"
           }`} >
           <img src={addIcon} className="w-4" />
@@ -255,7 +255,7 @@ const Dashboard = () => {
           onClick={() => setActiveBillTab("download")}
           className={`flex-1 py-2 text-sm rounded ${
             activeBillTab === "download"
-              ? "bg-orange-500 text-white shadow"
+              ? "bg-[#A68B5BFF] text-white shadow"
               : "border text-gray-600"
           }`}>
           Download PDF
@@ -271,7 +271,7 @@ const Dashboard = () => {
         </p>
         <p className="mt-2 font-semibold flex justify-between">
           Total Payable
-          <span className="text-orange-500">₹124.50</span>
+          <span className="text-[#C2863FFF]">₹124.50</span>
         </p>
       </div>
       <button onClick={() => {
@@ -301,12 +301,12 @@ const Dashboard = () => {
           <p className="text-sm">Update Shop Settings</p>
         </div>
         <div onClick={() => handleActionClick("Quick Generate Bill")}
-          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-orange-50 text-orange-500" >
+          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-orange-50 text-[#C2863FFF]" >
           <img src={fileIcon} className="w-5" />
           <p className="text-sm">Quick Generate Bill</p>
         </div>
         <div onClick={() => handleSend()}
-          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-green-50 text-green-500">
+          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-green-50 text-[#404C31FF]">
           <img src={whatsappIcon} className="w-5" />
           <p className="text-sm">Quick WhatsApp Offer</p>
         </div>
