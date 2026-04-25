@@ -19,9 +19,9 @@ function Sidebar() {
     { name: "Product Management", icon: productIcon },
     { name: "Blog", icon: blogIcon },
     { name: "Profile details", icon: profiledetails },
-   { name: "Staff Management", icon: usersIcon },
-   { name: "Godown Management", icon: godownIcon },
-  { name: "Supplier Management", icon: supplierIcon },];
+    { name: "Staff Management", icon: usersIcon },
+    { name: "Godown Management", icon: godownIcon },
+    { name: "Supplier Management", icon: supplierIcon },];
   const navigate = useNavigate();
   return (
     <>
@@ -50,6 +50,7 @@ function Sidebar() {
       setActive(item.name);
        setOpen(false);
        if (item.name === "Dashboard") navigate("/");
+       else if (item.name === "Profile details") navigate("/profile");
        else if (item.name === "Orders") navigate("/orders");
        else if (item.name === "Product Management") navigate("/product");
        else if (item.name === "Staff Management") navigate("/staff");

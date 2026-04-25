@@ -7,6 +7,8 @@ import ProductManagement from "./pages/ProductManagement";
 import AddProduct from "./pages/AddProduct";
 import AddCategory from "./pages/AddCategory";
 import Blog from "./pages/Blog";
+import ProfileDetails from "./pages/ProfileDetails";
+import StaffManagement from "./pages/StaffManagement";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -22,6 +24,8 @@ function App() {
            <Route path="/add-product" element={<AddProduct />} />
            <Route path="/add-category" element={<AddCategory />} />
            <Route path="/blog" element={<Blog />} />
+           <Route path="/profile" element={<ProfileDetails />} />
+           <Route path="/staff" element={<StaffManagement />} />
         </Routes>
       </div>
     </BrowserRouter>
