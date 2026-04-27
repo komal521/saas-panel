@@ -77,7 +77,7 @@ function StaffManagement() {
           </div>
         ))}
       </div>
-      <div className="mt-8 bg-white rounded-2xl shadow p-4 overflow-x-auto">
+      <div className="mt-8 bg-white rounded-2xl shadow p-4">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
           <div className="flex flex-wrap gap-2">
             <button onClick={() => setActiveFilter("role")}
@@ -102,7 +102,8 @@ function StaffManagement() {
           </div>
           <p className="text-xs text-gray-400">SHOWING 5 OF 128 RESULTS </p>
         </div>
-        <div className="min-w-[900px]">
+        <div className="overflow-x-auto">
+  <div className="min-w-[900px]">
           <div className="grid grid-cols-6 text-xs font-semibold text-gray-400 border-b pb-2">
             <p>NAME & ID</p>
             <p>DESIGNATION</p>
@@ -186,6 +187,8 @@ function StaffManagement() {
               </div>
             </div>
           ))}
+            </div>
+        </div>  
           <div className="text-center mt-4">
             <button className="text-[#C2863FFF] text-sm font-medium">
               Load More Directory Entries
@@ -194,7 +197,6 @@ function StaffManagement() {
 
         </div>
       </div>
-    </div>
   );
 }
 

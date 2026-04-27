@@ -207,98 +207,104 @@ const ProfileDetails = () => {
           </div>
         </div>
       </div>
-  <div className="mt-8 border rounded-2xl p-5 bg-white lg:w-[65%] ml-auto">
+ <div className="mt-8 border rounded-2xl p-5 bg-white lg:w-[65%] ml-auto">
   <div className="flex items-center justify-between mb-5">
-    <div className="flex items-right gap-2">
-      <img src={activityIcon} className="h-5 w-5" />
-      <h3 className="font-semibold">Activity Overview</h3>
-      <p className="text-black">Recent Security and operatinal events related to your account </p>
+    <div className="flex flex-col">  
+      <div className="flex items-center gap-2">
+        <img src={activityIcon} className="h-5 w-5" />
+        <h3 className="font-semibold">Activity Overview</h3>
+      </div>
+      <p className="text-gray-500 text-sm mt-1">
+        Recent security and operational events related to your account
+      </p>
     </div>
     <button className="text-sm text-[#A68B5BFF] font-medium">
       View Full Audit Log
     </button>
   </div>
   <div className="space-y-5">
-    <div className="flex justify-between items-start">
-      <div className="flex gap-3">
-        <img src={activityIcon} className="h-5 w-5 mt-1" />
-        <div>
-          <p className="text-sm font-medium"> Successful login from MacBook • Safari</p>
-          <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">    
-            <div className="flex items-center gap-1">
-              <img src={clockIcon} className="h-3 w-3" />
-              2 hrs ago
-            </div>
-            <div className="flex items-center gap-1">
-              <img src={globeIcon2} className="h-3 w-3" />
-              San Francisco,Us
-            </div>
+    <div className="flex gap-3">
+      <img src={activityIcon} className="h-5 w-5 mt-1" />
+      <div>
+        <p className="text-sm font-medium">
+          Successful login from MacBook • Safari
+        </p>
+        <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">
+          <div className="flex items-center gap-1">
+            <img src={clockIcon} className="h-3 w-3" />
+            2 hrs ago
+          </div>
+          <div className="flex items-center gap-1">
+            <img src={globeIcon2} className="h-3 w-3" />
+            San Francisco, US
           </div>
         </div>
       </div>
     </div>
-    <div className="flex justify-between items-start">  
-      <div className="flex gap-3">
-        <img src={activityIcon} className="h-5 w-5 mt-1" />     
-        <div>
-          <p className="text-sm font-medium">Profile informatioan updated </p>
-          <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">    
-            <div className="flex items-center gap-1">
-              <img src={clockIcon} className="h-3 w-3" />
-              Yesterday
-            </div>
-            <div className="flex items-center gap-1">
-              <img src={globeIcon2} className="h-3 w-3" />
-             Remote Web App
-            </div>
+    <div className="flex gap-3">
+      <img src={activityIcon} className="h-5 w-5 mt-1" />
+      <div>
+        <p className="text-sm font-medium">
+          Profile information updated
+        </p>
+        <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">
+          <div className="flex items-center gap-1">
+            <img src={clockIcon} className="h-3 w-3" />
+            Yesterday
+          </div>
+          <div className="flex items-center gap-1">
+            <img src={globeIcon2} className="h-3 w-3" />
+            Remote Web App
           </div>
         </div>
       </div>
     </div>
-    <div className="flex justify-between items-start">
-      <div className="flex gap-3">
-        <img src={activityIcon} className="h-5 w-5 mt-1" />      
-        <div>
-          <p className="text-sm font-medium"> Unusual Login Attempt Blocked</p>
-          <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">     
-            <div className="flex items-center gap-1">
-              <img src={clockIcon} className="h-3 w-3" />
-              3 days ago
-            </div>
-            <div className="flex items-center gap-1">
-              <img src={globeIcon2} className="h-3 w-3" />
-              Stockholm ,SE
-            </div>
+    <div className="flex gap-3">
+      <img src={activityIcon} className="h-5 w-5 mt-1" />
+      <div>
+        <p className="text-sm font-medium">
+          Unusual Login Attempt Blocked
+        </p>
+        <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">
+          <div className="flex items-center gap-1">
+            <img src={clockIcon} className="h-3 w-3" />
+            3 days ago
+          </div>
+          <div className="flex items-center gap-1">
+            <img src={globeIcon2} className="h-3 w-3" />
+            Stockholm, SE
           </div>
         </div>
       </div>
     </div>
-    <div className="flex justify-between items-start">    
-      <div className="flex gap-3">
-        <img src={activityIcon} className="h-5 w-5 mt-1" />      
-        <div>
-          <p className="text-sm font-medium text-black">
-            New Api Key Generated  </p>
-          <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">      
-            <div className="flex items-center gap-1">
-              <img src={clockIcon} className="h-3 w-3" />
-              Last week
-            </div>
-            <div className="flex items-center gap-1">
-              <img src={globeIcon2} className="h-3 w-3" />
-            Admin Consolde
-            </div>
+    <div className="flex gap-3">
+      <img src={activityIcon} className="h-5 w-5 mt-1" />
+      <div>
+        <p className="text-sm font-medium">
+          New API Key Generated
+        </p>
+        <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">
+          <div className="flex items-center gap-1">
+            <img src={clockIcon} className="h-3 w-3" />
+            Last week
+          </div>
+          <div className="flex items-center gap-1">
+            <img src={globeIcon2} className="h-3 w-3" />
+            Admin Console
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div className="flex justify-between items-center pt-3 border-t">
-  <div className="flex items-center gap-2 text-[#A68B5BFF] cursor-pointer">
-    <img src={verifyIcon} className="h-4 w-4" />
-    <span className="text-sm font-medium">All Activities are encrypted and archived for 90 days</span>
+  <div className="flex justify-between items-center pt-4 border-t mt-6">
+    <div className="flex items-center gap-2 text-[#A68B5BFF] cursor-pointer">
+      <img src={verifyIcon} className="h-4 w-4" />
+      <span className="text-sm font-medium">
+        All activities are encrypted and archived for 90 days
+      </span>
+    </div>
   </div>
-</div>
+
 </div>
     </div>
   );

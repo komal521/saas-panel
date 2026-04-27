@@ -12,6 +12,8 @@ import m1 from "../assets/m1.jpeg";
 import m2 from "../assets/m2.jpeg";
 import m3 from "../assets/m3.jpeg";
 import m4 from "../assets/m4.jpeg";
+import leftArrow from "../assets/left.png";
+import rightArrow3 from "../assets/right-arrow (3).png";
 import { useNavigate } from "react-router-dom";
 const ProductManagement = () => {
   const [toast, setToast] = useState("");
@@ -19,15 +21,15 @@ const ProductManagement = () => {
   const [allFilterActive, setAllFilterActive] = useState(false);
   const showNotification = (msg) => {
     setToast(msg);
-    setTimeout(() => setToast(""), 3000);
-  };
+    setTimeout(() => setToast(""), 3000);};
   const filterBtn = (name) =>
     `px-4 py-2 rounded-lg text-sm shadow transition ${
       activeFilter === name
         ? "bg-[#bf7a2c] text-white"
-        : "bg-white text-black hover:bg-gray-100"
-    }`;
+        : "bg-white text-black hover:bg-gray-100" }`;
     const navigate = useNavigate(); 
+    const [currentPage, setCurrentPage] = useState(1);
+const totalPages = 7; 
   return (
     <div className="p-4 md:p-6 bg-[#F8F6F2] min-h-screen relative">
       {toast && (
@@ -102,11 +104,11 @@ const ProductManagement = () => {
           </button>
         </div>
         <div className="flex flex-wrap gap-3">
-          <button className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow text-sm hover:bg-gray-100 transition">
+          <button className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow text-sm hover:bg-[#A68B5BFF] transition">
             Category: All
             <img src={downChevron} className="h-3" />
           </button>
-          <button className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow text-sm hover:bg-gray-100 transition">
+          <button className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow text-sm hover:bg-[#A68B5BFF] transition">
             Sort: Newest
             <img src={downChevron} className="h-3" />
           </button>
@@ -199,8 +201,35 @@ const ProductManagement = () => {
           </div>
         ))}
       </div>
+      <div className="flex flex-col sm:flex-row justify-between items-center mt-10 gap-4">
+   <p className="text-sm text-gray-500">
+    Showing 8 of 124 products
+  </p>
+  <div className="flex items-center gap-2">
+    <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+      className="p-2 rounded-lg bg-white shadow hover:bg-gray-100">
+      <img src={leftArrow} className="h-3" />
+    </button>
+    {[...Array(totalPages)].map((_, i) => {
+      const page = i + 1;
+      return (
+        <button  key={page}  onClick={() => setCurrentPage(page)}
+          className={`w-8 h-8 flex items-center justify-center rounded-lg text-sm font-medium transition
+            ${
+              currentPage === page
+                ? "bg-[#A68B5BFF] text-white"
+                : "bg-white text-black hover:bg-gray-100" }`}>
+          {page}
+        </button>
+      ); })}
+    <button onClick={() =>
+        setCurrentPage((prev) => Math.min(prev + 1, totalPages)) }
+      className="p-2 rounded-lg bg-white shadow hover:bg-gray-100" >
+      <img src={rightArrow3} className="h-3" />
+    </button>
+  </div>
+</div>
     </div>
   );
 };
-
 export default ProductManagement;

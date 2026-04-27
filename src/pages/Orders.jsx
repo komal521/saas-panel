@@ -35,10 +35,6 @@ function Orders() {
             Manage and track your boutique orders </p>
         </div>
         <div className="flex items-center gap-3 flex-wrap">
-        <div className="flex items-center bg-white border rounded-lg px-3 py-1 shadow-sm">
-        <img src={searchIcon} className="w-4 opacity-60" />
-        <input type="text" placeholder="Search orders..." value={search} onChange={(e) => setSearch(e.target.value)}
-         className="outline-none px-2 text-sm" /></div>
           <button onClick={handleExport}
             className="flex items-center gap-2 bg-[#C2863FFF] text-black px-4 py-2 rounded-lg font-medium hover:opacity-90" >
             <img src={downloadIcon} className="w-4" />

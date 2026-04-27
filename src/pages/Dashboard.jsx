@@ -166,7 +166,7 @@ const Dashboard = () => {
             <img src={caretDown} className="w-4" />
           </div>
           <button onClick={handleSend}
-            className="w-full bg-[#A68B5B4D] text-white py-2 rounded text-sm flex items-center justify-center gap-2">
+            className="w-full bg-[#404C31FF] text-white py-2 rounded text-sm flex items-center justify-center gap-2">
             <img src={whatsappIcon} className="w-4" />
             Send via WhatsApp
           </button>
