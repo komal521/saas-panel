@@ -8,6 +8,10 @@
   import infoIcon from "../assets/information (2).png";
   import pencilIcon from "../assets/pencil.png";
   import arrowIcon from "../assets/right-arrow (2).png";
+  import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { forwardRef } from "react";
     const BillGenerator = () => {
     const [items, setItems] = useState([
       { name: "SaaS Platform Development", qty: 1, price: 4500 },
@@ -25,6 +29,22 @@
     const tax = subtotal * 0.1;
     const total = subtotal + tax - 250;
    const [activeBtn, setActiveBtn] = useState("generate");
+   const [issuedDate, setIssuedDate] = useState(null);
+const [dueDate, setDueDate] = useState(null);
+const CustomInput = forwardRef(({ value, onClick, placeholder }, ref) => (
+  <div className="relative w-full">
+    <input
+      ref={ref}
+      value={value}
+      onClick={onClick}
+      placeholder={placeholder}
+      readOnly
+      className="w-full border rounded-md px-3 py-2 pr-10 text-sm cursor-pointer" />
+    <FaRegCalendarAlt
+      onClick={onClick}
+      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"/>
+  </div>
+     ));
     return (
       <div className="min-h-screen bg-[#F9FAFB] p-4 md:p-6">
       <div className="mb-6">
@@ -43,7 +63,7 @@
       <div className="flex flex-col lg:flex-row gap-6">
       <div className="flex-1 space-y-6">
       <div className="grid md:grid-cols-2 gap-6">
-      <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border">
+      <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border overflow-visible">
       <div className="flex items-center gap-2 mb-4">
       <img src={userIcon} className="w-5" />
       <h2 className="font-semibold text-gray-700">Client Details</h2>
@@ -51,7 +71,7 @@
       <div className="space-y-3"> <div>
       <p className="text-xs text-black mb-1">Client Name</p>
       <input className="w-full border rounded-md px-3 py-2 text-sm" /> </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3"> <div>
+      <div className="flex flex-col md:grid md:grid-cols-2 gap-3"> <div>
       <p className="text-xs text-black mb-1">Email</p>
       <input className="w-full border rounded-md px-3 py-2 text-sm" />  </div>
         <div>
@@ -63,7 +83,7 @@
                   </div>
                 </div>
               </div>
-        <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border">
+        <div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border overflow-visible">
           <div className="flex items-center gap-2 mb-4">
             <img src={reportIcon} className="w-5" />
             <h2 className="font-semibold text-gray-700">Invoice Details</h2></div>
@@ -73,20 +93,23 @@
             <input className="w-full border rounded-md px-3 py-2 text-sm" /> </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
     <div>
-      <p className="text-xs text-black mb-1">Issued Date</p>
-      <div className="w-full overflow-hidden">
-  <input type="date"
-    className="w-full min-w-0 border rounded-md px-2 py-2 text-sm"
-    style={{ maxWidth: "100%" }}/>
+     <div>
+  <p className="text-xs text-black mb-1">Issued Date</p>
+  <DatePicker
+    selected={issuedDate}
+    onChange={(date) => setIssuedDate(date)}
+    customInput={<CustomInput placeholder="Select issued date" />}/>
 </div>
     </div>
-    <div>
-      <p className="text-xs text-black mb-1">Due Date</p>
-      <div className="relative overflow-hidden">
-  <input type="date"
-    className="w-full border rounded-md px-3 py-2 text-sm" />
+   <div>
+ <div>
+  <p className="text-xs text-black mb-1">Due Date</p>
+  <DatePicker
+    selected={dueDate}
+    onChange={(date) => setDueDate(date)}
+    customInput={<CustomInput placeholder="Select due date" />}/>
 </div>
-    </div>
+</div>
   </div>
   <div>
     <p className="text-xs text-black mb-1">Currency</p>
@@ -120,8 +143,8 @@
     activeBtn === "addRow"
       ? "bg-[#A68B5B] text-white"
       : "bg-[#F9FAFB] hover:bg-[#A68B5B] hover:text-white"
-  }`}>
-  + Add New Row
+       }`}>
+       + Add New Row
 </button>
     </div>
     <div className="overflow-x-auto">
