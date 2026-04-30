@@ -43,7 +43,7 @@ function Orders() {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-5 rounded-xl shadow">
+        <div className="p-5 rounded-xl shadow bg-[linear-gradient(180deg,#F9FAFBFF_0%,#C2863FFF_100%)]">
           <div className="flex justify-between">
             <p className="text-gray-500 text-sm">TOTAL REVENUE</p>
             <img src={arrowRight} className="w-5 opacity-70" /> </div>
@@ -51,7 +51,7 @@ function Orders() {
           <p className="text-xs text-gray-500 flex items-center gap-1 mt-2">
             <img src={rightArrowSmall} className="w-3" />
             12.5% vs last month </p> </div>
-        <div className="bg-white p-5 rounded-xl shadow">
+        <div className="p-5 rounded-xl shadow bg-[linear-gradient(180deg,#F9FAFBFF_0%,#C2863FFF_100%)]">
           <div className="flex justify-between">
             <p className="text-gray-500 text-sm">ACTIVE ORDERS</p>
             <img src={clockIcon} className="w-5 opacity-70" /> </div>
@@ -59,7 +59,7 @@ function Orders() {
           <p className="text-xs text-gray-500 flex items-center gap-1 mt-2">
             <img src={rightArrowSmall} className="w-3" />
             4.2% vs last month</p> </div>
-        <div className="bg-white p-5 rounded-xl shadow">
+        <div className="p-5 rounded-xl shadow bg-[linear-gradient(180deg,#F9FAFBFF_0%,#C2863FFF_100%)]">
           <div className="flex justify-between">
             <p className="text-gray-500 text-sm">DELIVERED</p>
             <img src={clockIcon} className="w-5 opacity-70" />  </div>
@@ -67,7 +67,7 @@ function Orders() {
           <p className="text-xs text-gray-500 flex items-center gap-1 mt-2">
             <img src={rightArrowSmall} className="w-3" />
             8.1% vs last month </p></div>
-        <div className="bg-white p-5 rounded-xl shadow">
+        <div className="p-5 rounded-xl shadow bg-[linear-gradient(180deg,#F9FAFBFF_0%,#C2863FFF_100%)]">
           <div className="flex justify-between">
             <p className="text-gray-500 text-sm">AVG. VALUE</p>
             <img src={parcelIcon} className="w-5 opacity-70" /> </div>

@@ -10,6 +10,9 @@ import Blog from "./pages/Blog";
 import ProfileDetails from "./pages/ProfileDetails";
 import StaffManagement from "./pages/StaffManagement";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Godown from "./pages/Godown";
+import BillGenerator from "./pages/BillGenerator";
+import Supplier from "./pages/Supplier";
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
@@ -26,6 +29,10 @@ function App() {
            <Route path="/blog" element={<Blog />} />
            <Route path="/profile" element={<ProfileDetails />} />
            <Route path="/staff" element={<StaffManagement />} />
+           <Route path="/godown" element={<Godown />} />
+            <Route path="/generate-bill" element={<BillGenerator />} />
+            <Route path="/supplier" element={<Supplier />} />
+            
         </Routes>
       </div>
     </BrowserRouter>

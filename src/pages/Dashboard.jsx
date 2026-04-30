@@ -14,6 +14,7 @@ import michaelImg from "../assets/A1.jpg";
 import alishaImg from "../assets/alisha.jpg";
 import davidImg from "../assets/a3.jpg";
 import emmaImg from "../assets/a1.png";
+import { useNavigate } from "react-router-dom";
 import k1 from "../assets/k1.jpeg";
 import k2 from "../assets/k2.jpeg";
 import k3 from "../assets/k3.jpeg";
@@ -49,6 +50,7 @@ const Dashboard = () => {
     setTimeout(() => setToastMsg(""), 2000);
   };
   const [activeBillTab, setActiveBillTab] = useState("generate");
+  const navigate = useNavigate();
   return (
     <div className="p-3 sm:p-4 md:p-6 bg-gray-100 min-h-screen">
       {toastMsg && (
@@ -61,7 +63,9 @@ const Dashboard = () => {
       { title: "Total Products", value: "3,142", icon: productsIcon, change: "+5.2%", up: true },
       { title: "Total Users", value: "48,901", icon: usersIcon, change: "+18.7%", up: true },
       { title: "Pending Orders", value: "154", icon: pendingIcon, change: "-2.4%", up: false },].map((item, i) => (
-      <div key={i} className="relative bg-white p-4 rounded-xl shadow">
+      <div
+  key={i}
+  className="relative p-4 rounded-xl shadow bg-[linear-gradient(180deg,#F9FAFBFF_0%,#C2863FFF_100%)]">
       <div className={`absolute top-3 right-3 text-xs font-semibold flex items-center gap-1 ${
               item.up ? "text-[#C2863FFF]" : "text-red-500" }`}>
       <img src={arrowRight} className={`w-3 ${item.up ? "rotate-[-45deg]" : "rotate-[135deg]"}`} />
@@ -115,7 +119,7 @@ const Dashboard = () => {
             <td>Oct 23</td>
             <td>{o.amount}</td>
             <td>
-            <span className={`px-2 py-1 rounded text-white text-xs ${
+            <span className={`px-2 py-1 rounded text-black text-xs ${
              o.status === "Completed"? "bg-[#A68B5B4D]": o.status === "Pending"? "bg-[#C2863FFF]": "bg-[#C2863FFF]" }`}>
                 {o.status} </span>
                 </td>
@@ -241,23 +245,15 @@ const Dashboard = () => {
         <h2 className="font-semibold">Bill Generation</h2>
       </div>
       <div className="flex gap-2 mb-4">
-        <button
-          onClick={() => setActiveBillTab("generate")}
-          className={`flex-1 py-2 text-sm rounded flex items-center justify-center gap-2 ${
-            activeBillTab === "generate"
-              ? "bg-[#A68B5BFF] text-white shadow"
-              : "border text-gray-600"
-          }`} >
-          <img src={addIcon} className="w-4" />
-          Generate Bill
-        </button>
-        <button
-          onClick={() => setActiveBillTab("download")}
+        <button onClick={() => navigate("/generate-bill")}
+  className="flex-1 py-2 text-sm rounded flex items-center justify-center gap-2 bg-[#A68B5BFF] text-white shadow">
+       Generate Bill
+          </button>
+        <button onClick={() => setActiveBillTab("download")}
           className={`flex-1 py-2 text-sm rounded ${
             activeBillTab === "download"
               ? "bg-[#A68B5BFF] text-white shadow"
-              : "border text-gray-600"
-          }`}>
+              : "border text-gray-600" }`}>
           Download PDF
         </button>
       </div>

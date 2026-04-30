@@ -67,7 +67,7 @@ function StaffManagement() {
             icon: verifyIcon,
           },
         ].map((item, i) => (
-          <div  key={i}  className="bg-[#A68B5B4D] p-4 rounded-xl flex justify-between items-center" >
+          <div  key={i}  className="p-4 rounded-xl flex justify-between items-center bg-[linear-gradient(180deg,#F9FAFBFF_0%,#C2863FFF_100%)]">
             <div>
               <p className="text-gray-500 text-xs sm:text-sm">{item.title}</p>
               <h2 className="text-lg sm:text-xl font-bold">{item.value}</h2>
