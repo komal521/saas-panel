@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Godown from "./pages/Godown";
 import BillGenerator from "./pages/BillGenerator";
 import Supplier from "./pages/Supplier";
+import Reports from "./pages/Reports";
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
@@ -32,6 +33,7 @@ function App() {
            <Route path="/godown" element={<Godown />} />
             <Route path="/generate-bill" element={<BillGenerator />} />
             <Route path="/supplier" element={<Supplier />} />
+           <Route path="/reports" element={<Reports />} /> 
             
         </Routes>
       </div>

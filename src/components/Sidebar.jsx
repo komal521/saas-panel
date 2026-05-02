@@ -10,6 +10,7 @@ import { useNavigate} from "react-router-dom";
 import usersIcon from "../assets/user.png";
 import godownIcon from "../assets/warehouse.png";
 import supplierIcon from "../assets/cargo-truck.png";
+import reportIcon from "../assets/report.png";
 function Sidebar() {
   const [active, setActive] = useState("Dashboard");
   const [open, setOpen] = useState(false);
@@ -21,7 +22,11 @@ function Sidebar() {
     { name: "Profile details", icon: profiledetails },
     { name: "Staff Management", icon: usersIcon },
     { name: "Godown Management", icon: godownIcon },
-    { name: "Supplier Management", icon: supplierIcon },];
+    { name: "Supplier Management", icon: supplierIcon },
+     { name: "Reports", icon: reportIcon }, 
+  
+  ];
+    
   const navigate = useNavigate();
   return (
     <>
@@ -57,7 +62,8 @@ function Sidebar() {
        else if (item.name === "Godown Management") navigate("/godown");
        else if (item.name === "Supplier Management") navigate("/supplier");
        else if (item.name === "Blog") navigate("/blog");
-       else if (item.name === "Settings") navigate("/settings");}}
+       else if (item.name === "Settings") navigate("/settings");
+      else if (item.name === "Reports") navigate("/reports");}}
         className={`group flex items-center gap-3 p-3 rounded-lg cursor-pointer mb-2 transition ${
                   active === item.name
                     ? "bg-[#A68B5BFF] text-black"
