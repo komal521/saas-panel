@@ -142,10 +142,10 @@ function Supplier() {
              <td>
             <span className={`px-2 py-1 rounded-full text-xs ${
            item.status === "Active"
-             ? "bg-green-100 text-black"
+             ? "bg-[#0D6CF21A] text-black"
              : item.status === "Pending"
-             ? "bg-yellow-100 text-black"
-             : "bg-red-100 text-black" }`}>
+             ? "bg-[#0D6CF21A] text-black"
+             : "bg-[#0D6CF21A] text-black" }`}>
              {item.status}  </span> </td>
              <td>{item.date}</td>
              <td>

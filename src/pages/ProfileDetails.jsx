@@ -117,6 +117,12 @@ const ProfileDetails = () => {
               </div>
             </div>
           </div>
+          <div className="mt-4">
+  <button onClick={() => alert("You have been logged out successfully")}
+    className="w-full py-2 rounded-lg bg-[#A68B5BFF] text-black  hover:bg-[#C2863FFF] transition text-sm font-medium">
+       Logout
+        </button>
+          </div>
         </div>
         <div className="flex-1 bg-white rounded-2xl shadow p-6 md:p-8">
           <div className="flex items-center gap-2 mb-4">

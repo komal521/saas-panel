@@ -5,13 +5,18 @@ import uploadIcon from "../assets/upload.png";
 import infoIcon from "../assets/information (2).png";
 import downChevron from "../assets/down-chevron.png";
 import m2 from "../assets/m2.jpeg";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import calendarIcon from "../assets/calendar1.png";
+import { useRef } from "react";
 const AddCategory = () => {
   const navigate = useNavigate();
   const [active, setActive] = useState(true);
   const [selectedBtn, setSelectedBtn] = useState("publish"); 
+  const [date, setDate] = useState(null);
+  const datePickerRef = useRef(null);
   return (
-    <div className="w-full max-w-full overflow-x-hidden p-4 sm:p-6 bg-[#F8F6F2] min-h-screen">
-      {/* HEADER */}
+    <div className="w-full max-w-full overflow-hidden md:overflow-visible p-4 sm:p-6 bg-[#F8F6F2] min-h-screen">
       <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6">
       <div>
       <h1 className="text-2xl font-semibold">
@@ -27,7 +32,7 @@ const AddCategory = () => {
          <img src={addIcon} className="h-4" />
          Create Category</button>
          </div></div>
-      <div className="grid md:grid-cols-3 gap-6 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
       <div className="md:col-span-2 space-y-6">
       <div className="bg-white p-5 rounded-xl shadow w-full">
       <h3 className="font-semibold mb-4 flex items-center gap-2">
@@ -81,7 +86,7 @@ const AddCategory = () => {
             </div>
           </div>
         </div>
-        <div className="space-y-6 w-full">
+        <div className="space-y-6 w-full md:max-w-full">
           <div className="bg-white p-5 rounded-xl shadow">
             <h3 className="font-semibold mb-3">
               Visibility & Status
@@ -104,16 +109,28 @@ const AddCategory = () => {
               <input type="checkbox" />
               Featured Category
             </div>
-            <div>
-              <p className="text-xs text-gray-400 mb-1">
-                SCHEDULE PUBLICATION
-              </p>
-              <input type="datetime-local"
-                className="border p-2 rounded w-full"/>
-              <p className="text-xs text-gray-400 mt-1">
-                Leave blank to publish immediately upon saving </p>
-            </div>
-          </div>
+           <div>
+  <p className="text-xs text-gray-400 mb-1">
+    SCHEDULE PUBLICATION
+  </p>
+  <div className="relative">
+    <DatePicker
+      ref={datePickerRef}
+      selected={date}
+      onChange={(d) => setDate(d)}
+      showTimeSelect
+      dateFormat="Pp"
+      className="border p-2 pr-10 rounded w-full"
+      popperPlacement="bottom-start"/>
+    <img  src={calendarIcon}
+      alt="calendar"
+      onClick={() => datePickerRef.current.setOpen(true)}
+      className="absolute right-3 top-1/2 -translate-y-1/2 h-4 cursor-pointer" />
+  </div>
+  <p className="text-xs text-gray-400 mt-1">
+    Leave blank to publish immediately upon saving </p>
+    </div>
+    </div>
           <div className="bg-white p-5 rounded-xl shadow">
             <h3 className="font-semibold mb-3">
               Metadata / SEO

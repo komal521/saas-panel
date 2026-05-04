@@ -19,6 +19,7 @@ import t3 from "../assets/t3.jpeg";
 function Reports() {
   const [activeFilter, setActiveFilter] = useState("Weekly");
   const [downloadActive, setDownloadActive] = useState(false);
+    const [active, setActive] = useState("refresh");
   return (
     <div className="min-h-screen p-4 md:p-6 bg-[#F9FAFB]">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6"> 
@@ -314,8 +315,8 @@ function Reports() {
                 <span
                   className={`text-xs px-2 py-1 rounded-full font-medium ${
                     item[4] === "Critical"
-                      ? "bg-red-100 text-black"
-                      : "bg-yellow-100 text-black"
+                      ? "bg-[#A68B5B4D] text-black"
+                      : "bg-[#A68B5B4D] text-black"
                   }`} >
                   {item[4] === "Critical" ? "Critical" : "Low Stock"}
                 </span>
@@ -344,11 +345,11 @@ function Reports() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-        <div className="bg-[#C2863FFF] text-black p-4 rounded-lg">
+        <div className="bg-[#A68B5BFF] text-black p-4 rounded-lg">
           <p className="text-xs opacity-80">TOTAL VALUATION</p>
           <h2 className="font-bold text-xl">₹8,45,200</h2>
         </div>
-        <div className="bg-[#C2863FFF] text-white p-4 rounded-lg">
+        <div className="bg-[#A68B5BFF] text-white p-4 rounded-lg">
           <p className="text-xs opacity-80">EXPECTED PROFIT</p>
           <h2 className="font-bold text-xl">₹3,25,000</h2>
         </div>
@@ -366,7 +367,7 @@ function Reports() {
       </div>
     </div>
     <div className="bg-white rounded-xl shadow-sm border p-4">
-      <div className="flex justify-between items-center mb-4 bg-[linear-gradient(90deg,#FFF49C,#C2863F)] px-3 py-2 rounded-lg">
+      <div className="flex justify-between items-center mb-4 bg-gradient-to-b from-[#FFFFFFFF] to-[#FFF49CFF] px-3 py-2 rounded-lg">
         <div className="flex items-center gap-2">
           <img src={handIcon} className="w-4 h-4" />
           <p className="font-medium text-sm md:text-base">
@@ -416,38 +417,46 @@ function Reports() {
           View Details
         </p>
       </div>
-      {[
-        { name: "Rahul Sharma", img: t3, bills: 450, sales: "₹1,42,000", id:"CS-01" },
-        { name: "Priya Verma", img: t2, bills: 412, sales: "₹1,28,500", id:"CS-02" },
-        { name: "Amit Singh", img: t1, bills: 385, sales: "₹1,18,000", id:"CS-03" },
-      ].map((item, i) => (
-        <div key={i}
-          className="flex items-center justify-between bg-gray-50 border p-3 rounded-lg mb-2">
-          <div className="flex items-center gap-3">
-            <img src={item.img}
-              className="w-10 h-10 rounded-full object-cover" />
-            <div>
-              <p className="text-sm font-medium">{item.name}</p>
-              <p className="text-xs text-gray-500">
-                ID: {item.id} • Senior Cashier
-              </p>
-            </div>
-          </div>
-          <div className="text-right text-xs">
-            <p className="text-gray-500">Bills Handled</p>
-            <p className="font-semibold">{item.bills}</p>
-            <p className="text-[#C2863FFF] font-semibold mt-1">
-              {item.sales}
-            </p>
-          </div>
-        </div>
-      ))}
-
+    {[
+  { name: "Rahul Sharma", img: t3, bills: 450, sales: "₹1,42,000", id:"CS-01" },
+  { name: "Priya Verma", img: t2, bills: 412, sales: "₹1,28,500", id:"CS-02" },
+  { name: "Amit Singh", img: t1, bills: 385, sales: "₹1,18,000", id:"CS-03" },
+].map((item, i) => (
+  <div
+    key={i}
+    className="flex items-center justify-between bg-gray-50 border p-3 rounded-lg mb-2">
+    <div className="flex items-center gap-3">
+      <img  src={item.img}  className="w-10 h-10 rounded-full object-cover"/>
+      <div>
+        <p className="text-sm font-medium">{item.name}</p>
+        <p className="text-xs text-gray-500">
+          ID: {item.id} • Senior Cashier
+        </p>
+      </div>
+    </div>
+    <div className="grid grid-cols-2 gap-6 text-center text-xs">
+      <div>
+        <p className="text-black uppercase text-[10px]">
+          Bills Handled </p>
+        <p className="font-semibold text-sm">
+          {item.bills}
+        </p>
+      </div>
+      <div>
+        <p className="text-black uppercase text-[10px]">
+          Total Sales
+        </p>
+        <p className="font-semibold text-sm text-[#C2863FFF]">
+          {item.sales}
+        </p>
+      </div>
+    </div>
+  </div>
+))}
       <p className="text-center text-xs text-[#C2863FFF] mt-2 cursor-pointer hover:underline">
         Download Individual Logs
       </p>
     </div>
-
     <div className="bg-[#FFF49CFF] rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-3 border">
       <div className="flex items-center gap-2">
         <img src={filterIcon} className="w-5 h-5" />
@@ -458,14 +467,23 @@ function Reports() {
           </p>
         </div>
       </div>
-
       <div className="flex gap-2 w-full md:w-auto">
-        <button className="text-xs px-3 py-1 bg-white rounded shadow w-full md:w-auto">
-          Schedule Email Report
-        </button>
-        <button className="text-xs px-3 py-1 bg-[#C2863FFF] text-white rounded w-full md:w-auto">
-          Refresh All Data
-        </button>
+        <button onClick={() => setActive("schedule")}
+        className={`text-xs px-3 py-1 rounded w-full md:w-auto transition
+        ${
+          active === "schedule"
+            ? "bg-[#C2863FFF] text-white"
+            : "bg-white text-[#C2863FFF] border border-[#C2863FFF]"}`} >
+        Schedule Email Report
+      </button>
+      <button onClick={() => setActive("refresh")}
+        className={`text-xs px-3 py-1 rounded w-full md:w-auto transition
+        ${
+          active === "refresh"
+            ? "bg-[#C2863FFF] text-white"
+            : "bg-white text-[#C2863FFF] border border-[#C2863FFF]" }`}>
+        Refresh All Data
+      </button>
       </div>
     </div>
   </div>

@@ -193,8 +193,7 @@ function Orders() {
             ))}
           </div> </div> </div>
    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 mb-6">
-             {/* CARD 1 */}
-         <div className="p-5 rounded-xl border bg-gradient-to-r from-[#fff7e6] to-[#fff1cc] hover:shadow-md transition">
+  <div className="p-5 rounded-xl border bg-gradient-to-b from-[#FFFFFFFF] to-[#FFF49CFF] hover:shadow-md transition">
     <p className="text-xs text-gray-500 mb-1">Logistics Active</p>
     <h3 className="font-semibold text-lg text-gray-800">
       Order Optimization Active
@@ -209,8 +208,7 @@ function Orders() {
       <img src={rightArrowSmall} className="w-3" />
     </button>
   </div>
-  {/* CARD 2 */}
-  <div className="p-5 rounded-xl border bg-gradient-to-r from-[#fff7e6] to-[#fff1cc] hover:shadow-md transition">
+  <div className="p-5 rounded-xl border bg-gradient-to-b from-[#FFFFFFFF] to-[#FFF49CFF] hover:shadow-md transition">
     <p className="text-xs text-gray-500 mb-1">Financial AI</p>
     <h3 className="font-semibold text-lg text-gray-800">
       Q4 Revenue Forecast

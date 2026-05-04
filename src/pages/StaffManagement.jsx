@@ -199,5 +199,4 @@ function StaffManagement() {
       </div>
   );
 }
-
 export default StaffManagement;

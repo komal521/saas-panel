@@ -100,9 +100,9 @@ const Dashboard = () => {
                   <th>Amount</th>
                   <th>Status</th>
                   <th>Action</th>
-          </tr>
-           </thead>
-           <tbody>
+                 </tr>
+                 </thead>
+                   <tbody>
             {[ 
              { id: "#ORD-921", name: "Sarah Johnson", img: sarahImg, amount: "₹124.50", status: "Completed" },
              { id: "#ORD-922", name: "Michael Chen", img: michaelImg, amount: "₹89.00", status: "Pending" },
@@ -282,27 +282,27 @@ const Dashboard = () => {
       <h2 className="font-semibold mb-4">Quick Actions</h2>
       <div className="flex flex-col gap-3">
         <div  onClick={() => handleActionClick("Add New Product")}
-          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-gray-50">
+          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-[#FFF49CFF]">
           <img src={addIcon} className="w-5" />
           <p className="text-sm">Add New Product</p>
         </div>
         <div  onClick={() => handleActionClick("Invite Staff Member")}
-          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-gray-50">
+          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-[#FFF49CFF]">
           <img src={usersIcon} className="w-5" />
           <p className="text-sm">Invite Staff Member</p>
         </div>
         <div onClick={() => handleActionClick("Update Shop Settings")}
-          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-gray-50">
+          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-[#FFF49CFF]">
           <img src={settingsIcon} className="w-5" />
           <p className="text-sm">Update Shop Settings</p>
         </div>
         <div onClick={() => handleActionClick("Quick Generate Bill")}
-          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-orange-50 text-[#C2863FFF]" >
+          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-[#FFF49CFF] text-[#C2863FFF]" >
           <img src={fileIcon} className="w-5" />
           <p className="text-sm">Quick Generate Bill</p>
         </div>
         <div onClick={() => handleSend()}
-          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-green-50 text-[#404C31FF]">
+          className="flex items-center gap-3 border p-3 rounded cursor-pointer hover:bg-[#FFF49CFF] text-[#404C31FF]">
           <img src={whatsappIcon} className="w-5" />
           <p className="text-sm">Quick WhatsApp Offer</p>
         </div>
