@@ -21,7 +21,6 @@ const ManageCategory = () => {
     const [showEditPage, setShowEditPage] = useState(false);
     const navigate = useNavigate();
   return (
-    
     <div className="p-4 md:p-6 bg-[#F8F6F2] min-h-screen">
       <div className="mb-6">
         <h1 className="text-xl sm:text-2xl font-semibold">

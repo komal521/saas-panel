@@ -9,9 +9,9 @@
   import pencilIcon from "../assets/pencil.png";
   import arrowIcon from "../assets/right-arrow (2).png";
   import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { forwardRef } from "react";
+  import "react-datepicker/dist/react-datepicker.css";
+  import { FaRegCalendarAlt } from "react-icons/fa";
+  import { forwardRef } from "react";
     const BillGenerator = () => {
     const [items, setItems] = useState([
       { name: "SaaS Platform Development", qty: 1, price: 4500 },

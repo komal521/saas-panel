@@ -19,7 +19,6 @@ const AddNewBlog = () => {
           <p className="text-sm text-gray-500">
             Draft your next masterpiece with our premium editor  </p>
         </div>
-      
       </div>
       <div className="bg-white rounded-xl shadow p-4 md:p-6 max-w-4xl mx-auto">
         <h2 className="text-sm font-semibold text-black mb-2">
@@ -49,7 +48,7 @@ const AddNewBlog = () => {
         </div>
         <div className="border-b mb-4"></div>
         <p className="text-xs text-black mb-3">
-  Upload Images</p>
+            Upload Images</p>
         <div className="border-2 border-dashed rounded-xl p-6 text-center 
         bg-gradient-to-b from-[#FFFFFF] to-[#FFF49CFF]">
           <img src={uploadIcon} className="h-6 mx-auto mb-2" />
