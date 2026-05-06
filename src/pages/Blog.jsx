@@ -3,6 +3,7 @@ import z1 from "../assets/z1.jpeg";
 import user1 from "../assets/user1.png";
 import arrowIcon from "../assets/right-arrow (2).png";
 import e1 from "../assets/e1.jpeg";
+import { useNavigate } from "react-router-dom";
 import e2 from "../assets/e2.jpeg";
 import e3 from "../assets/e3.jpeg";
 import e4 from "../assets/e4.jpeg";
@@ -10,6 +11,7 @@ import e5 from "../assets/e5.jpeg";
 import e6 from "../assets/e6.jpeg";
 import y1 from "../assets/y1.jpeg";
 import y2 from "../assets/y2.jpeg";
+import addIcon from "../assets/add.png";
 import y3 from "../assets/y3.jpeg";
 import searchIcon from "../assets/search.png";
 import infoIcon from "../assets/information (2).png";
@@ -99,8 +101,16 @@ const Blog = () => {
     time: "1 day ago",
   },
 ];
+const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F9FAFB] to-[#BCC7D2] p-4 md:p-8">
+      <div className="flex justify-end mb-4">
+ <button onClick={() => navigate("/blog-list")}
+  className="flex items-center gap-2 bg-[#A68B5BFF] text-white px-5 py-2 rounded-lg text-sm font-semibold hover:scale-105 transition">
+  <img src={addIcon} alt="add" className="h-4 w-4" />
+  Add Blog
+</button>
+</div>
     <div className="relative rounded-2xl overflow-hidden shadow-xl">
     <img src={z1} className="w-full h-[220px] sm:h-[280px] md:h-[420px] object-cover" />
      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent 

@@ -7,14 +7,17 @@ import arrowRight from "../assets/arrow-right.png";
 import filterIcon from "../assets/right-arrow.png";
 import dotsIcon from "../assets/dots.png";
 import whatsappIcon from "../assets/whatsapp.png";
+import infoIcon from "../assets/information (2).png";
 import caretDown from "../assets/caret-down.png";
 import checkIcon from "../assets/checkmark.png";
 import sarahImg from "../assets/user1.png";
 import michaelImg from "../assets/A1.jpg";
+import arrowIcon from "../assets/right-arrow (2).png";
 import alishaImg from "../assets/alisha.jpg";
 import davidImg from "../assets/a3.jpg";
 import emmaImg from "../assets/a1.png";
 import { useNavigate } from "react-router-dom";
+import downChevron from "../assets/down-chevron.png";
 import k1 from "../assets/k1.jpeg";
 import k2 from "../assets/k2.jpeg";
 import k3 from "../assets/k3.jpeg";
@@ -31,26 +34,22 @@ import settingsIcon from "../assets/settings.png";
 const Dashboard = () => {
   const [toastMsg, setToastMsg] = useState("");
   const [message, setMessage] = useState(
-    "Hi! We have a special weekend sale just for you. Use code SAVE20 for 20% off..."
-  );
+    "Hi! We have a special weekend sale just for you. Use code SAVE20 for 20% off...");
   const handleSend = () => {
     setToastMsg("Offer sent via WhatsApp ");
-    setTimeout(() => setToastMsg(""), 3000);
-  };
+    setTimeout(() => setToastMsg(""), 3000);};
   const handleActionClick = (name) => {
     setToastMsg(`Clicked on ${name}`);
-    setTimeout(() => setToastMsg(""), 2000);
-  };
+    setTimeout(() => setToastMsg(""), 2000);};
   const handleFilterClick = () => {
     setToastMsg("Filter clicked ");
-    setTimeout(() => setToastMsg(""), 2000);
-  };
+    setTimeout(() => setToastMsg(""), 2000); };
   const handleViewAll = () => {
     setToastMsg("Viewing all orders ");
-    setTimeout(() => setToastMsg(""), 2000);
-  };
+    setTimeout(() => setToastMsg(""), 2000); };
   const [activeBillTab, setActiveBillTab] = useState("generate");
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("");
   return (
     <div className="p-3 sm:p-4 md:p-6 bg-gray-100 min-h-screen">
       {toastMsg && (
@@ -136,79 +135,138 @@ const Dashboard = () => {
             View All Orders
           </div>
         </div>
-        <div className="bg-white rounded-xl shadow p-4">
-          <div className="flex items-center gap-2 mb-2">
-            <img src={whatsappIcon} className="w-5" />
-            <h2 className="font-semibold">WhatsApp Offer</h2>
-          </div>
-          <p className="text-gray-400 text-sm mb-3">
-            Blast notifications directly to WhatsApp.
-          </p>
-          <div onClick={() => setToastMsg("WhatsApp enabled ")}
-            className="flex justify-between items-center border p-3 rounded mb-4 cursor-pointer">
-            <div>
-              <p className="text-sm font-medium">Send Offer via WhatsApp</p>
-              <p className="text-xs text-gray-400">
-                Enable direct messaging for this campaign.
-              </p>
-            </div>
-            <img src={checkIcon} className="w-5" />
-          </div>
-          <label className="text-sm font-medium">Offer Message</label>
-          <textarea value={message}
-        onChange={(e) => setMessage(e.target.value)}
-         maxLength={500}
-        className="w-full border p-2 rounded mb-1 text-sm resize-none"
-        rows={4}/>
-          <div className="text-right text-xs text-gray-400 mb-3">
-            Characters: {message.length} / 500
-          </div>
-          <label className="text-sm font-medium">Select Customer Group</label>
-          <div onClick={() => setToastMsg("Dropdown clicked ")}
-            className="flex justify-between items-center border p-2 rounded mb-4 cursor-pointer">
-            <span className="text-sm">VIP Customers (1,240)</span>
-            <img src={caretDown} className="w-4" />
-          </div>
-          <button onClick={handleSend}
-            className="w-full bg-[#404C31FF] text-white py-2 rounded text-sm flex items-center justify-center gap-2">
-            <img src={whatsappIcon} className="w-4" />
-            Send via WhatsApp
-          </button>
-        </div>
+<div className="bg-white rounded-xl shadow p-4 w-full">
+  <div className="flex items-center justify-between mb-2">
+    <div className="flex items-center gap-2">
+      <img src={whatsappIcon} className="w-5" />
+      <h2 className="font-semibold">WhatsApp Marketing</h2>
+    </div>
+    <div className="flex gap-2">
+      <button
+        onClick={() => setActiveTab("discountTop")}
+        className={`px-3 py-1 text-xs border rounded ${
+          activeTab === "discountTop" ? "bg-[#A68B5BFF] text-white" : ""
+        }`} >
+        Coupon / Discount
+      </button>
+      <button  onClick={() => setActiveTab("wishes")}
+        className={`px-3 py-1 text-xs border rounded ${
+          activeTab === "wishes" ? "bg-[#A68B5BFF] text-white" : ""
+        }`} >
+        Send Wishes
+      </button>
+    </div>
+  </div>
+  <p className="text-gray-400 text-xs md:text-sm mb-3">
+    Send offers & wishes directly to customers.
+  </p>
+  {activeTab === "discountTop" && (
+    <div className="border p-3 rounded bg-gray-50 space-y-2 mb-3">
+      <select className="w-full border p-2 rounded text-sm">
+        <option>Select Festival</option>
+        <option>Diwali Offer</option>
+        <option>New Year</option>
+        <option>Eid</option>
+      </select>
+      <textarea defaultValue="Diwali Special! Get 30% OFF on all products "
+        className="w-full border p-2 rounded text-sm"
+        rows={3}/>
+      <input  type="text"  placeholder="Coupon Code"  className="w-full border p-2 rounded text-sm"/>
+      <select className="w-full border p-2 rounded text-sm">
+        <option>Discount Type</option>
+        <option>Percentage (%)</option>
+        <option>Flat Amount (₹)</option>
+      </select>
+      <input type="number" placeholder="Discount Value" className="w-full border p-2 rounded text-sm" />
+      <select className="w-full border p-2 rounded text-sm">
+        <option>Send To</option>
+        <option>All Customers</option>
+        <option>Specific Customers</option>
+      </select>
+      <input  type="text"  placeholder="Search customer..."  className="w-full border p-2 rounded text-sm"/>
+      <button onClick={() => setToastMsg("Coupon Sent ")}
+        className="w-full bg-[#A68B5BFF] text-white py-1 rounded text-xs" >
+        Send Coupon Campaign
+      </button>
+    </div>
+  )}
+  {activeTab === "wishes" && (
+    <div className="border p-3 rounded bg-gray-50 space-y-2 mb-3">
+      <select className="w-full border p-2 rounded text-sm">
+        <option>Select Occasion</option>
+        <option>Diwali Wishes</option>
+        <option>Birthday</option>
+        <option>Anniversary</option>
+      </select>
+      <textarea
+        placeholder="Happy Diwali ! Wishing you happiness & prosperity."
+        className="w-full border p-2 rounded text-sm"
+        rows={3}
+      />
+      <select className="w-full border p-2 rounded text-sm">
+        <option>Send To</option>
+        <option>All Customers</option>
+        <option>Specific Customers</option>
+      </select>
+      <input  type="text"  placeholder="Search customer..."
+        className="w-full border p-2 rounded text-sm" />
+
+      <button  onClick={() => setToastMsg("Wishes Sent ")}
+        className="w-full bg-[#404C31FF] text-white py-1 rounded text-xs">
+        Send Wishes
+      </button>
+    </div>
+  )}
+</div>
       </div>
 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
   <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div className="bg-white rounded-xl shadow p-4  h-fit">
-      <h2 className="font-semibold text-lg mb-1">Latest Products</h2>
-      <p className="text-gray-400 text-sm mb-4">
-        Recently added to the inventory.
-      </p>
-      {[ 
-        { name: "Premium Wireless Headphones", price: "₹299", id: "P-101", stock: "12", img: k1 },
-        { name: "Ergonomic Mechanical Keyboard", price: "₹159", id: "P-102", stock: "8", img: k2 },
-        { name: "4K Ultra-Wide Monitor", price: "₹699", id: "P-103", stock: "5", img: k3 },
-        { name: "Smart Home Security Kit", price: "₹199", id: "P-104", stock: "24", img: k4 },
-        { name: "Portable SSD 2TB", price: "₹129", id: "P-105", stock: "45", img: k5 },
-      ].map((p, i) => (
-        <div key={i} className="flex items-center justify-between py-3 border-b last:border-none">
-          <div className="flex items-center gap-3">
-            <img src={p.img} className="w-12 h-12 rounded object-cover" />
-            <div>
-              <p className="text-sm font-medium">{p.name}</p>
-              <p className="text-xs text-gray-400">
-                ID: {p.id} • {p.stock} in stock
-              </p>
-            </div>
-          </div>
-          <p className="text-[#C2863FFF] font-semibold text-sm">{p.price}</p>
+   <div className="bg-white rounded-2xl shadow p-4 h-fit">
+  <div className="flex items-center justify-between mb-1">
+    <h2 className="font-semibold text-lg">Low Stock Products</h2>
+    <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
+      Action Required
+    </span>
+  </div>
+  <p className="text-gray-400 text-sm mb-4">
+    Products running low in inventory</p>
+  {[
+    { name: "Premium Wireless Headphones", price: "₹299", id: "P-101", stock: "3", img: k1 },
+    { name: "Ergonomic Mechanical Keyboard", price: "₹159", id: "P-102", stock: "2", img: k2 },
+    { name: "4K Ultra-Wide Monitor", price: "₹699", id: "P-103", stock: "5", img: k3 },
+    { name: "Smart Home Security Kit", price: "₹199", id: "P-104", stock: "1", img: k4 },
+    { name: "Portable SSD 2TB", price: "₹129", id: "P-105", stock: "4", img: k5 },
+  ].map((p, i) => (
+    <div  key={i}
+      className="flex items-center justify-between py-3 border-b last:border-none" >
+      <div className="flex items-center gap-3">
+        <img  src={p.img}
+          className="w-12 h-12 rounded-lg object-cover" />
+        <div>
+          <p className="text-sm font-medium">{p.name}</p>
+          <p className="text-xs text-gray-400">
+            {p.id}
+          </p>
         </div>
-      ))}
-      <div
-        onClick={() => setToastMsg("Viewing full inventory ")}
-        className="text-center mt-4 text-gray-500 hover:text-[#C2863FFF] cursor-pointer text-sm">
-        View Full Inventory
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="text-right">
+          <p className="text-sm font-semibold text-gray-800">
+            {p.price}
+          </p>
+          <p className="text-xs text-red-500 flex items-center gap-1 justify-end">
+            <img src={infoIcon} className="w-3 h-3" />
+            {p.stock} left
+          </p>
+        </div>
       </div>
     </div>
+  ))}
+<div className="flex items-center justify-center gap-2 mt-4 text-gray-500 hover:text-[#C2863F] cursor-pointer text-sm">
+  <span>View All Products</span>
+  <img src={arrowIcon} className="w-4 h-4" />
+</div>  
+</div>
     <div className="bg-white rounded-xl shadow p-4 h-fit">
       <h2 className="font-semibold text-lg mb-1">Recent Users</h2>
       <p className="text-gray-400 text-sm mb-4">
@@ -309,8 +367,7 @@ const Dashboard = () => {
         </div>
       </div>
      </div>
-    </div>
-    </div>   
+    </div></div> 
   );
 };
 export default Dashboard;

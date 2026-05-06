@@ -16,7 +16,7 @@ const ProfileDetails = () => {
   const [activeTag, setActiveTag] = useState("verified");
   const [toggleOn, setToggleOn] = useState(true);
   return (
-    <div className="min-h-screen bg-[#F9FAFB] p-6 md:p-10">
+    <div className="min-h-screen p-6 md:p-10 bg-[linear-gradient(180deg,#FFFFFFFF_0%,#FFF49CFF_100%)]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <div>
       <h1 className="text-2xl md:text-3xl font-semibold text-black">

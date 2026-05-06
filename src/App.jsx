@@ -14,6 +14,10 @@ import Godown from "./pages/Godown";
 import BillGenerator from "./pages/BillGenerator";
 import Supplier from "./pages/Supplier";
 import Reports from "./pages/Reports";
+import AddBlog from "./pages/AddBlog";
+import AddNewBlog from "./pages/AddNewBlog";
+import ManageCategory from "./pages/ManageCategory";
+import AddEditProduct from "./pages/AddEditProduct";
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
@@ -21,21 +25,24 @@ function App() {
       <Sidebar />
       <div className="bg-gray-100 min-h-screen md:ml-64">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/product" element={<ProductManagement />} />
-           <Route path="/add-product" element={<AddProduct />} />
-           <Route path="/add-category" element={<AddCategory />} />
-           <Route path="/blog" element={<Blog />} />
-           <Route path="/profile" element={<ProfileDetails />} />
-           <Route path="/staff" element={<StaffManagement />} />
-           <Route path="/godown" element={<Godown />} />
-            <Route path="/generate-bill" element={<BillGenerator />} />
-            <Route path="/supplier" element={<Supplier />} />
-           <Route path="/reports" element={<Reports />} /> 
-            
-        </Routes>
+       <Routes>
+  <Route path="/" element={<Dashboard />} />
+  <Route path="/orders" element={<Orders />} />
+  <Route path="/product" element={<ProductManagement />} />
+  <Route path="/add-product" element={<AddProduct />} />
+  <Route path="/add-category" element={<AddCategory />} />
+  <Route path="/blog" element={<Blog />} />
+  <Route path="/profile" element={<ProfileDetails />} />
+  <Route path="/staff" element={<StaffManagement />} />
+  <Route path="/godown" element={<Godown />} />
+  <Route path="/generate-bill" element={<BillGenerator />} />
+  <Route path="/supplier" element={<Supplier />} />
+  <Route path="/reports" element={<Reports />} />
+  <Route path="/blog-list" element={<AddBlog />} />
+  <Route path="/add-blog" element={<AddNewBlog />} />
+  <Route path="/manage-category" element={<ManageCategory />} />
+  <Route path="/edit-product" element={<AddEditProduct />} />
+</Routes>
       </div>
     </BrowserRouter>
   );

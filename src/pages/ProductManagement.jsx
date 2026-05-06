@@ -45,6 +45,12 @@ const totalPages = 7;
     </p>
   </div>
   <div className="flex gap-3">
+     <button
+    onClick={() => navigate("/manage-category")}
+    className="flex items-center gap-2 bg-white border px-4 py-2 rounded-lg shadow-sm hover:bg-gray-100 transition" >
+    <img src={addIcon} className="h-4" />
+    Manage Category
+  </button>
     <button onClick={() => navigate("/add-category")}
       className="flex items-center gap-2 bg-white border px-4 py-2 rounded-lg shadow-sm hover:bg-gray-100 transition" >
       <img src={addIcon} className="h-4" />
