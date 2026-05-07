@@ -24,12 +24,12 @@ const AddEditProduct = () => {
             Add / Edit Product
           </h1>
           <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => navigate("/manage-category")}
-              className="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm bg-white">
-              <img src={closeIcon} className="h-4" />
-              Cancel
-            </button>
+           <button onClick={() => {
+    alert("Changes discarded successfully!");}}
+  className="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm bg-white">
+  <img src={closeIcon} className="h-4" />
+  Cancel
+</button>
             <button className="flex items-center gap-2 px-4 py-2 bg-[#A68B5BFF] text-white rounded-lg text-sm shadow">
               <img src={reportIcon} className="h-4" />
               Save Product

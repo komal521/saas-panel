@@ -16,7 +16,6 @@ import Supplier from "./pages/Supplier";
 import Reports from "./pages/Reports";
 import AddBlog from "./pages/AddBlog";
 import AddNewBlog from "./pages/AddNewBlog";
-import ManageCategory from "./pages/ManageCategory";
 import AddEditProduct from "./pages/AddEditProduct";
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -40,7 +39,6 @@ function App() {
   <Route path="/reports" element={<Reports />} />
   <Route path="/blog-list" element={<AddBlog />} />
   <Route path="/add-blog" element={<AddNewBlog />} />
-  <Route path="/manage-category" element={<ManageCategory />} />
   <Route path="/edit-product" element={<AddEditProduct />} />
 </Routes>
       </div>

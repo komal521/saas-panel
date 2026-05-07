@@ -7,6 +7,7 @@ import arrowRight from "../assets/arrow-right.png";
 import filterIcon from "../assets/right-arrow.png";
 import dotsIcon from "../assets/dots.png";
 import whatsappIcon from "../assets/whatsapp.png";
+import reportIcon from "../assets/report.png";
 import infoIcon from "../assets/information (2).png";
 import caretDown from "../assets/caret-down.png";
 import checkIcon from "../assets/checkmark.png";
@@ -136,55 +137,71 @@ const Dashboard = () => {
           </div>
         </div>
 <div className="bg-white rounded-xl shadow p-4 w-full">
-  <div className="flex items-center justify-between mb-2">
-    <div className="flex items-center gap-2">
-      <img src={whatsappIcon} className="w-5" />
-      <h2 className="font-semibold">WhatsApp Marketing</h2>
-    </div>
-    <div className="flex gap-2">
-      <button
-        onClick={() => setActiveTab("discountTop")}
-        className={`px-3 py-1 text-xs border rounded ${
-          activeTab === "discountTop" ? "bg-[#A68B5BFF] text-white" : ""
-        }`} >
-        Coupon / Discount
-      </button>
-      <button  onClick={() => setActiveTab("wishes")}
-        className={`px-3 py-1 text-xs border rounded ${
-          activeTab === "wishes" ? "bg-[#A68B5BFF] text-white" : ""
-        }`} >
-        Send Wishes
-      </button>
-    </div>
+  <div className="flex items-center gap-2 mb-4">
+    <img src={whatsappIcon} className="w-5" />
+    <h2 className="font-semibold">WhatsApp Marketing</h2>
   </div>
-  <p className="text-gray-400 text-xs md:text-sm mb-3">
+  <div className="flex flex-wrap gap-2 mb-4">
+    <button onClick={() => setActiveTab("discountTop")}
+      className={`px-3 py-1.5 text-[10px] font-medium border rounded-lg transition-all ${
+        activeTab === "discountTop"
+          ? "bg-[#A68B5BFF] text-white shadow-sm border-[#A68B5BFF]"
+          : "bg-white text-gray-600 hover:bg-gray-50"}`} >
+      Coupon / Discount
+    </button>
+    <button onClick={() => setActiveTab("wishes")}
+      className={`px-3 py-1.5 text-[10px] font-medium border rounded-lg transition-all ${
+        activeTab === "wishes"
+          ? "bg-[#A68B5BFF] text-white shadow-sm border-[#A68B5BFF]"
+          : "bg-white text-gray-600 hover:bg-gray-50" }`} >
+      Send Wishes
+    </button>
+    <button  onClick={() => setActiveTab("bulk")}
+      className={`px-3 py-1.5 text-[10px] font-medium border rounded-lg transition-all ${
+        activeTab === "bulk"
+          ? "bg-[#A68B5BFF] text-white shadow-sm border-[#A68B5BFF]"
+          : "bg-white text-gray-600 hover:bg-gray-50" }`}>
+      Bulk / Excel
+    </button>
+  </div>
+  <p className="text-gray-400 text-xs mb-4">
     Send offers & wishes directly to customers.
   </p>
   {activeTab === "discountTop" && (
     <div className="border p-3 rounded bg-gray-50 space-y-2 mb-3">
-      <select className="w-full border p-2 rounded text-sm">
-        <option>Select Festival</option>
-        <option>Diwali Offer</option>
-        <option>New Year</option>
-        <option>Eid</option>
-      </select>
+      <div className="relative">
+        <select className="w-full border p-2 rounded text-sm appearance-none bg-white">
+          <option>Select Festival</option>
+          <option>Diwali Offer</option>
+        </select>
+        <img  src={downChevron}
+          className="w-3 absolute right-3 top-1/2 -translate-y-1/2 opacity-60 pointer-events-none" />
+      </div>
       <textarea defaultValue="Diwali Special! Get 30% OFF on all products "
         className="w-full border p-2 rounded text-sm"
-        rows={3}/>
+        rows={3} />
       <input  type="text"  placeholder="Coupon Code"  className="w-full border p-2 rounded text-sm"/>
-      <select className="w-full border p-2 rounded text-sm">
-        <option>Discount Type</option>
-        <option>Percentage (%)</option>
-        <option>Flat Amount (₹)</option>
-      </select>
-      <input type="number" placeholder="Discount Value" className="w-full border p-2 rounded text-sm" />
-      <select className="w-full border p-2 rounded text-sm">
-        <option>Send To</option>
-        <option>All Customers</option>
-        <option>Specific Customers</option>
-      </select>
-      <input  type="text"  placeholder="Search customer..."  className="w-full border p-2 rounded text-sm"/>
-      <button onClick={() => setToastMsg("Coupon Sent ")}
+      <div className="relative">
+        <select className="w-full border p-2 rounded text-sm appearance-none bg-white">
+          <option>Discount Type</option>
+          <option>Percentage (%)</option>
+          <option>Flat Amount (₹)</option>
+        </select>
+        <img src={downChevron}
+          className="w-3 absolute right-3 top-1/2 -translate-y-1/2 opacity-60 pointer-events-none"/>
+      </div>
+      <input  type="number"  placeholder="Discount Value"  className="w-full border p-2 rounded text-sm"/>
+      <div className="relative">
+        <select className="w-full border p-2 rounded text-sm appearance-none bg-white">
+          <option>Send To</option>
+          <option>All Customers</option>
+          <option>Specific Customers</option>
+        </select>
+        <img    src={downChevron}
+          className="w-3 absolute right-3 top-1/2 -translate-y-1/2 opacity-60 pointer-events-none"  />
+      </div>
+      <input type="text" placeholder="Search customer..." className="w-full border p-2 rounded text-sm"/>
+      <button  onClick={() => setToastMsg("Coupon Sent ")}
         className="w-full bg-[#A68B5BFF] text-white py-1 rounded text-xs" >
         Send Coupon Campaign
       </button>
@@ -192,33 +209,71 @@ const Dashboard = () => {
   )}
   {activeTab === "wishes" && (
     <div className="border p-3 rounded bg-gray-50 space-y-2 mb-3">
-      <select className="w-full border p-2 rounded text-sm">
-        <option>Select Occasion</option>
-        <option>Diwali Wishes</option>
-        <option>Birthday</option>
-        <option>Anniversary</option>
-      </select>
-      <textarea
-        placeholder="Happy Diwali ! Wishing you happiness & prosperity."
-        className="w-full border p-2 rounded text-sm"
-        rows={3}
-      />
-      <select className="w-full border p-2 rounded text-sm">
-        <option>Send To</option>
-        <option>All Customers</option>
-        <option>Specific Customers</option>
-      </select>
-      <input  type="text"  placeholder="Search customer..."
-        className="w-full border p-2 rounded text-sm" />
-
+      <div className="relative">
+        <select className="w-full border p-2 rounded text-sm appearance-none bg-white">
+          <option>Select Occasion</option>
+          <option>Diwali Wishes</option>
+        </select>
+        <img src={downChevron}
+          className="w-3 absolute right-3 top-1/2 -translate-y-1/2 opacity-60 pointer-events-none"  />
+      </div>
+      <textarea  placeholder="Happy Diwali ! Wishing you happiness & prosperity."
+        className="w-full border p-2 rounded text-sm" rows={3} />
+      <div className="relative">
+        <select className="w-full border p-2 rounded text-sm appearance-none bg-white">
+          <option>Send To</option>
+          <option>All Customers</option>
+          <option>Specific Customers</option>
+        </select>
+        <img src={downChevron}
+          className="w-3 absolute right-3 top-1/2 -translate-y-1/2 opacity-60 pointer-events-none"/>
+      </div>
+      <input  type="text"  placeholder="Search customer..."  className="w-full border p-2 rounded text-sm"/>
       <button  onClick={() => setToastMsg("Wishes Sent ")}
-        className="w-full bg-[#404C31FF] text-white py-1 rounded text-xs">
+        className="w-full bg-[#404C31FF] text-white py-1 rounded text-xs"   >
         Send Wishes
       </button>
     </div>
   )}
-</div>
+  {activeTab === "bulk" && (
+    <div className="border p-3 rounded bg-gray-50 space-y-3 mb-3">
+      <p className="text-xs text-gray-500 font-medium">
+        Bulk WhatsApp Messaging
+      </p>
+      <div className="space-y-2">
+        <label className="text-[10px] text-gray-400">
+          PASTE MULTIPLE NUMBERS
+        </label>
+        <textarea placeholder="Enter numbers separated by comma (e.g. 9876543210, 9123456789)"
+          className="w-full border p-2 rounded text-sm resize-none"
+          rows={2}/>
       </div>
+     <div className="space-y-2">
+  <label className="text-[10px] text-gray-400">
+    OR UPLOAD EXCEL / CSV
+  </label>
+  <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-[#A68B5BFF] transition-colors bg-white"> 
+    <img  src={reportIcon}
+      className="w-6 h-6 mx-auto mb-2 opacity-40"/>
+    <p className="text-xs text-gray-500">
+      Click to upload .xlsx or .csv sheet
+    </p>
+  </div>
+</div>
+      <div className="space-y-2">
+        <label className="text-[10px] text-gray-400">
+          MESSAGE
+        </label>
+        <textarea   placeholder="Type your bulk message here..."
+          className="w-full border p-2 rounded text-sm resize-none"  rows={3}/>
+      </div>
+      <button onClick={() => setToastMsg("Bulk Campaign Started! ")}
+        className="w-full bg-[#A68B5BFF] text-white py-2 rounded text-xs font-semibold shadow-sm">
+        Start Bulk Campaign
+      </button>
+    </div>
+  )}
+</div></div>
 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
   <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
    <div className="bg-white rounded-2xl shadow p-4 h-fit">
@@ -268,7 +323,18 @@ const Dashboard = () => {
 </div>  
 </div>
     <div className="bg-white rounded-xl shadow p-4 h-fit">
-      <h2 className="font-semibold text-lg mb-1">Recent Users</h2>
+      <div className="flex justify-between items-center mb-1">
+        <h2 className="font-semibold text-lg">Recent Users</h2>
+        <div className="hidden lg:flex gap-2">
+          <button  onClick={() => {
+              setToastMsg("WhatsApp Broadcast started for all registered users! ");
+              setTimeout(() => setToastMsg(""), 3000);}}
+            className="bg-[#404C31FF] text-white px-3 py-1.5 rounded-lg text-[10px] font-medium flex items-center gap-2 hover:opacity-90 shadow-sm transition-all">
+            <img src={whatsappIcon} className="w-3" />
+            Broadcast All
+          </button>
+        </div>
+      </div>
       <p className="text-gray-400 text-sm mb-4">
         New sign-ups in the last 24 hours.
       </p>
@@ -287,7 +353,16 @@ const Dashboard = () => {
               <p className="text-xs text-gray-400">{u.email}</p>
             </div>
           </div>
-          <p className="text-[10px] text-gray-400 font-medium">{u.time}</p>
+          <div className="flex items-center gap-3">
+            <p className="text-[10px] text-gray-400 font-medium">{u.time}</p>
+            <button   onClick={(e) => {    e.stopPropagation();
+                setToastMsg(`Opening WhatsApp chat for ${u.name}...`);
+                setTimeout(() => setToastMsg(""), 2000);}}
+              className="flex items-center gap-1 bg-green-50 text-green-700 px-2 py-1 rounded text-[10px] hover:bg-green-100 transition-colors border border-green-200">
+              <img src={whatsappIcon} className="w-3 h-3" />
+              <span>Send</span>
+            </button>
+          </div>
         </div>
       ))}
       <div onClick={() => setToastMsg("Managing all users ")}

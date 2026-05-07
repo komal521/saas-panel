@@ -1,241 +1,224 @@
 import React, { useState } from "react";
+import boxIcon from "../assets/box.png";
+import clockIcon from "../assets/clock.png";
+import searchIcon from "../assets/search.png";
+import viewIcon from "../assets/view.png";
+import editIcon from "../assets/edit.png";
+import binIcon from "../assets/bin.png";
+import leftIcon from "../assets/left.png";
+import rightIcon from "../assets/right-arrow (3).png";
+import layersIcon from "../assets/layers.png";
+import arrowIcon from "../assets/right-arrow (2).png";
+import o1 from "../assets/o1.jpeg";
+import o2 from "../assets/o2.jpeg";
+import o3 from "../assets/o3.jpeg";
+import o4 from "../assets/o4.jpeg";
+import o5 from "../assets/o5.jpeg";
 import addIcon from "../assets/add.png";
-import productImg from "../assets/pic1.png";
-import rightArrow from "../assets/right-arrow.png";
-import rightArrowAlt from "../assets/right-arrow (1).png";
-import downChevron from "../assets/down-chevron.png";
-import d1 from "../assets/d1.jpeg";
-import d2 from "../assets/d2.jpeg";
-import d3 from "../assets/d3.jpeg";
-import d4 from "../assets/d4.jpeg";
-import m1 from "../assets/m1.jpeg";
-import m2 from "../assets/m2.jpeg";
-import m3 from "../assets/m3.jpeg";
-import m4 from "../assets/m4.jpeg";
-import leftArrow from "../assets/left.png";
-import rightArrow3 from "../assets/right-arrow (3).png";
 import { useNavigate } from "react-router-dom";
-const ProductManagement = () => {
-  const [toast, setToast] = useState("");
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [allFilterActive, setAllFilterActive] = useState(false);
-  const showNotification = (msg) => {
-    setToast(msg);
-    setTimeout(() => setToast(""), 3000);};
-  const filterBtn = (name) =>
-    `px-4 py-2 rounded-lg text-sm shadow transition ${
-      activeFilter === name
-        ? "bg-[#bf7a2c] text-white"
-        : "bg-white text-black hover:bg-gray-100" }`;
-    const navigate = useNavigate(); 
-    const [currentPage, setCurrentPage] = useState(1);
-const totalPages = 7; 
+const ManageCategory = () => {
+    const [activePage, setActivePage] = useState(1);
+    const [activeFilter, setActiveFilter] = useState("All");
+    const [showEditPage, setShowEditPage] = useState(false);
+    const navigate = useNavigate();
   return (
-    <div className="p-4 md:p-6 bg-[#F8F6F2] min-h-screen relative">
-      {toast && (
-        <div className="fixed top-5 right-5 bg-[#1f2937] text-white px-5 py-3 rounded-lg shadow-lg z-50 text-sm font-medium">
-          {toast}
-        </div> )}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-     <div>
+    <div className="p-4 md:p-6 bg-[#F8F6F2] min-h-screen">
+      <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+  <div>
     <h1 className="text-xl sm:text-2xl font-semibold">
-      Product Management </h1>
+      Category Management
+    </h1>
     <p className="text-gray-500 text-xs sm:text-sm">
-      Create, manage and track your products easily
+      Manage your categories and inventory
     </p>
   </div>
-  <div className="flex gap-3">
-     <button
-    onClick={() => navigate("/manage-category")}
-    className="flex items-center gap-2 bg-white border px-4 py-2 rounded-lg shadow-sm hover:bg-gray-100 transition" >
-    <img src={addIcon} className="h-4" />
-    Manage Category
-  </button>
-    <button onClick={() => navigate("/add-category")}
-      className="flex items-center gap-2 bg-white border px-4 py-2 rounded-lg shadow-sm hover:bg-gray-100 transition" >
-      <img src={addIcon} className="h-4" />
-      Add Category
+  <div className="flex flex-wrap gap-3">
+   <button onClick={() => navigate("/add-category")}
+  className="bg-[#A68B5BFF] hover:opacity-90 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow transition">
+  <img src={addIcon} className="h-4 w-4" />
+  <span className="text-sm font-medium">
+    Add Category
+  </span>
+</button>
+    <button
+      onClick={() => navigate("/add-product")}
+      className="bg-[#A68B5BFF] hover:opacity-90 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow transition">
+      <img src={addIcon} className="h-4 w-4" />
+      <span className="text-sm font-medium">
+        Add New Product
+      </span>
     </button>
-    <button onClick={() => navigate("/add-product")}
-      className="flex items-center gap-2 bg-[#A68B5BFF] text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition">
-      <img src={addIcon} className="h-4 invert" />
-      Add New Product
+  </div>
+</div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="bg-gradient-to-b from-white to-[#FFF49CFF] p-4 rounded-xl shadow flex justify-between items-center">
+          <div>
+            <p className="text-xs text-gray-500">Total Categories</p>
+            <h2 className="text-xl font-semibold">1,248</h2>
+          </div>
+          <img src={boxIcon} className="h-5 opacity-70" />
+        </div>
+        <div className="bg-gradient-to-b from-white to-[#FFF49CFF] p-4 rounded-xl shadow flex justify-between items-center">
+          <div>
+            <p className="text-xs text-gray-500">Active Categories</p>
+            <h2 className="text-xl font-semibold">1,102</h2>
+          </div>
+          <img src={boxIcon} className="h-5 opacity-70" />
+        </div>
+        <div className="bg-gradient-to-b from-white to-[#FFF49CFF] p-4 rounded-xl shadow flex justify-between items-center">
+          <div>
+            <p className="text-xs text-gray-500">Total Sub Categories</p>
+            <h2 className="text-xl font-semibold">46</h2>
+          </div>
+          <img src={clockIcon} className="h-5 opacity-70" />
+        </div>
+        <div className="bg-gradient-to-b from-white to-[#FFF49CFF] p-4 rounded-xl shadow flex justify-between items-center">
+          <div>
+            <p className="text-xs text-gray-500">Categories Count</p>
+            <h2 className="text-xl font-semibold">24</h2>
+          </div>
+          <img src={boxIcon} className="h-5 opacity-70" />
+        </div>
+      </div>
+<div className="flex flex-col md:flex-row md:items-center justify-between mt-8 gap-3">
+<div className="flex bg-gray-200 rounded-full p-1 text-sm overflow-x-auto">
+  {["All", "In Stock", "Out of Stock"].map((f, i) => (
+    <button  key={i}  onClick={() => setActiveFilter(f)}
+      className={`px-4 py-1 rounded-full transition ${
+        activeFilter === f
+          ? "bg-[#A68B5BFF] text-white"
+          : "text-gray-600 hover:bg-gray-300" }`} >
+      {f}
     </button>
-    </div>
-   </div>
-      <div className="relative rounded-xl overflow-hidden shadow-md">
-        <img src={productImg}
-          className="w-full h-[220px] md:h-[300px] object-cover"/>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFF49CFF]/80 via-[#A68B5BFF]/50 to-transparent"></div>
-        <div className="absolute top-4 left-4 text-white text-xs sm:text-sm">
-          Featured Release
-        </div>
-        <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-6 text-white max-w-md">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">
-            Elite Series: Cloud Walker
-          </h2>
-          <p className="text-xs sm:text-sm mb-4">
-            Experience the next generation of comfort and style with our limited edition sneakers.</p>
-          <div className="flex flex-wrap gap-3">
-            <button onClick={() => showNotification("Promotion updated successfully")}
-              className="bg-white text-[#C2863FFF] px-4 py-2 rounded-lg text-sm" >
-              Edit Promotion
-            </button>
-            <button onClick={() => showNotification("Viewing analytics")}
-              className="flex items-center gap-2 bg-white/90 text-black px-4 py-2 rounded-lg text-sm">
-              View Analytics
-              <img src={rightArrowAlt} className="h-3" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="mt-8 flex flex-col lg:flex-row justify-between gap-4">
-        <div className="flex flex-wrap gap-3">
-          <button  onClick={() => setAllFilterActive(!allFilterActive)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg shadow text-sm transition ${
-              allFilterActive
-                ? "bg-[#A68B5BFF] text-white"
-                : "bg-white text-black hover:bg-gray-100"}`}>
-            <img src={rightArrow} className="h-3" />
-            All Filters
-          </button>
-          <button onClick={() => setActiveFilter("All")} className={filterBtn("All")}>
-            All
-          </button>
-          <button onClick={() => setActiveFilter("In Stock")} className={filterBtn("In Stock")}>
-            In Stock
-          </button>
-          <button onClick={() => setActiveFilter("Out of Stock")} className={filterBtn("Out of Stock")}>
-            Out of Stock
-          </button>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          <button className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow text-sm hover:bg-[#A68B5BFF] transition">
-            Category: All
-            <img src={downChevron} className="h-3" />
-          </button>
-          <button className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow text-sm hover:bg-[#A68B5BFF] transition">
-            Sort: Newest
-            <img src={downChevron} className="h-3" />
-          </button>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-        {[ 
-          {img:d1,name:"Aurelia Minimalist",price:"₹450.00",stock:"In Stock",left:"24"},
-          {img:d2,name:"Elysian Fragrance",price:"₹120.00",stock:"Low Stock",left:"5"},
-          {img:d3,name:"Nomad Canvas",price:"₹285.00",stock:"Out of Stock",left:"0"},
-          {img:d4,name:"Suede Chelsea Boot",price:"₹320.00",stock:"In Stock",left:"12"},
-        ].map((item,i)=>(
-          <div key={i} className="bg-white rounded-xl shadow overflow-hidden hover:shadow-lg transition">        
-            <img src={item.img} className="h-52 w-full object-cover"/>
-            <div className="p-4">      
-              <div className="flex justify-between items-center">
-                <h3 className="font-semibold text-sm">{item.name}</h3>
-                <span className="text-[#C2863FFF] font-semibold text-sm">
-                  {item.price}
-                </span>
-              </div>
-              <p className="text-xs text-gray-500 mt-1">
-                Premium quality product with modern design
-              </p>
-              <div className="flex justify-between text-xs mt-2">
-                <span>{item.stock}</span>
-                <span>{item.left} UNITS LEFT</span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-        {[
-          {
-            img: m1,
-            name: "Terrazzo Stone",
-            price: "₹65.00",
-            desc: "Set of 4 hand-polished natural",
-            stock: "In Stock",
-            left: "42",
-          },
-          {
-            img: m2,
-            name: "Merino Wool Scarf",
-            price: "₹95.00",
-            desc: "Extra-fine merino wool from",
-            stock: "Low Stock",
-            left: "8",
-          },
-          {
-            img: m3,
-            name: "Velvet Accent",
-            price: "₹890.00",
-            desc: "Mid-century modern silhouette",
-            stock: "Low Stock",
-            left: "2",
-          },
-          {
-            img: m4,
-            name: "Copper Drip Kettle",
-            price: "₹115.00",
-            desc: "Precision gooseneck spout for",
-            stock: "In Stock",
-            left: "15",
-          },
-        ].map((item, i) => (
-          <div  key={i}
-            className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden" >
-            <img src={item.img} className="h-52 w-full object-cover" />
-            <div className="p-4">
-              <div className="flex justify-between items-center">
-                <h3 className="font-semibold text-sm">{item.name}</h3>
-                <span className="text-[#C2863FFF] font-semibold text-sm">
-                  {item.price}
-                </span>
-              </div>
-              <p className="text-xs text-gray-500 mt-1">
-                {item.desc}
-              </p>
-              <div className="flex justify-between text-xs mt-3">
-                <span className="bg-gray-100 px-2 py-1 rounded">
-                  {item.stock}
-                </span>
-                <span className="text-gray-400">
-                  {item.left} UNITS LEFT
-                </span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="flex flex-col sm:flex-row justify-between items-center mt-10 gap-4">
-   <p className="text-sm text-gray-500">
-    Showing 8 of 124 products
+  ))}
+</div>
+  <div className="flex items-center bg-white px-3 py-2 rounded-full shadow w-full md:w-72">
+    <img src={searchIcon} className="h-4 mr-2 opacity-60" />
+    <input
+      placeholder="Search products..."
+      className="outline-none text-sm w-full"/>
+  </div>
+</div>
+<div className="bg-white rounded-xl shadow mt-6 overflow-x-auto">
+ <table className="w-full min-w-[700px] text-sm">
+    <thead className="text-gray-500 border-b">
+      <tr>
+        <th className="text-left p-4">Product Name & ID</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>URL</th>
+        <th>Stock</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        { img: o1, name: "Signature Gold Watch", id: "PRD-7281", cat: "Accessories", price: "$1,250.00", stock: "In Stock" },
+        { img: o2, name: "Silk Velvet Blazer", id: "PRD-8890", cat: "Apparel", price: "$890.00", stock: "In Stock" },
+        { img: o3, name: "Leather Artisan Tote", id: "PRD-4412", cat: "Bags", price: "$420.00", stock: "Out of Stock" },
+        { img: o4, name: "Onyx Fountain Pen", id: "PRD-1022", cat: "Stationery", price: "$185.00", stock: "In Stock" },
+        { img: o5, name: "Cashmere Travel Wrap", id: "PRD-5561", cat: "Apparel", price: "$310.00", stock: "Out of Stock" },
+      ].map((item, i) => (
+        <tr key={i} className="border-b hover:bg-gray-50">
+          <td className="p-4">
+  <div className="flex items-center gap-3 min-w-[180px]">
+            <img src={item.img} className="h-10 w-10 rounded-full object-cover" />
+            <div>
+              <p className="font-medium">{item.name}</p>
+              <p className="text-xs text-gray-400">ID: {item.id}</p>
+            </div></div>
+          </td>
+          <td className="text-center">
+            <span className="bg-gray-100 px-2 py-1 rounded text-xs">
+              {item.cat}
+            </span>
+          </td>
+          <td className="text-center">{item.price}</td>
+          <td className="text-center text-[#C2863FFF] text-xs underline cursor-pointer">
+            uxproduct.com/{item.id}
+          </td>
+          <td className="text-center">
+            <span className={`px-2 py-1 rounded-full text-xs ${
+              item.stock === "In Stock"
+                ? "bg-green-100 text-green-600"
+                : "bg-red-100 text-red-500"
+            }`}>
+              {item.stock}
+            </span>
+          </td>
+          <td className="flex justify-center gap-3 py-4">
+            <img src={viewIcon} className="h-4 cursor-pointer" />
+          <div onClick={() => navigate("/edit-product")}
+  className="flex items-center gap-1 cursor-pointer text-[#C2863F] hover:underline">
+  <img src={editIcon} className="h-4" />
+  <span className="text-xs">Edit</span>
+</div>
+            <img src={binIcon} className="h-4 cursor-pointer" />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<div className="flex flex-col md:flex-row justify-between items-center mt-6 gap-4">
+  <p className="text-sm text-gray-500">
+    Showing 1-5 of 1248 products
   </p>
-  <div className="flex items-center gap-2">
-    <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-      className="p-2 rounded-lg bg-white shadow hover:bg-gray-100">
-      <img src={leftArrow} className="h-3" />
+ <div className="flex items-center gap-2 flex-wrap justify-center">
+    <button className="p-2 bg-white rounded shadow">
+      <img src={leftIcon} className="h-3" />
     </button>
-    {[...Array(totalPages)].map((_, i) => {
-      const page = i + 1;
-      return (
-        <button  key={page}  onClick={() => setCurrentPage(page)}
-          className={`w-8 h-8 flex items-center justify-center rounded-lg text-sm font-medium transition
-            ${
-              currentPage === page
-                ? "bg-[#A68B5BFF] text-white"
-                : "bg-white text-black hover:bg-gray-100" }`}>
-          {page}
-        </button>
-      ); })}
-    <button onClick={() =>
-        setCurrentPage((prev) => Math.min(prev + 1, totalPages)) }
-      className="p-2 rounded-lg bg-white shadow hover:bg-gray-100" >
-      <img src={rightArrow3} className="h-3" />
+    {[1,2,3,4,5,6].map((n) => (
+  <button
+    key={n}
+    onClick={() => setActivePage(n)}
+    className={`w-8 h-8 rounded transition ${
+      activePage === n
+        ? "bg-[#A68B5BFF] text-white"
+        : "bg-white hover:bg-gray-100"
+    }`}>
+    {n}
+  </button>
+))}
+    <button className="p-2 bg-white rounded shadow">
+      <img src={rightIcon} className="h-3" />
     </button>
+  </div>
+</div>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+  <div className="bg-[linear-gradient(180deg,#FFFFFFFF_0%,#FFF49CFF_100%)] p-4 rounded-xl shadow">
+   <div className="flex gap-4 items-start">
+      <img src={boxIcon} className="h-6" />
+      <div>
+        <h3 className="font-semibold">Automated Restocking</h3>
+        <p className="text-xs text-gray-500">
+          Your inventory syncs every 15 minutes with the main distribution hub. Low stock alerts are currently active for 12 items.
+        </p>
+        <p className="text-[#C2863FFF] text-sm mt-2 cursor-pointer flex items-center gap-1">
+          Configure Alerts
+          <img src={arrowIcon} className="h-3" />
+        </p>
+      </div>
+    </div>
+  </div>
+  <div className="bg-[linear-gradient(180deg,#FFFFFFFF_0%,#FFF49CFF_100%)] p-4 rounded-xl shadow">
+    <div className="flex gap-4">
+      <img src={layersIcon} className="h-6" />
+      <div>
+        <h3 className="font-semibold">Multi-Channel Listing</h3>
+        <p className="text-xs text-gray-500">
+          Current products are successfully listed across Shopify, Amazon Premium, and your direct boutique portal.
+        </p>
+        <p className="text-[#C2863FFF] text-sm mt-2 cursor-pointer flex items-center gap-1">
+          View Channel Report
+          <img src={arrowIcon} className="h-3" />
+        </p>
+      </div>
+    </div>
   </div>
 </div>
     </div>
   );
 };
-export default ProductManagement;
+
+export default ManageCategory;
